@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:#000;
+    color: white;
+    margin:0;
+    overflow:hidden;
+    padding:0;
+    width: 100%;
+}
+
+.wrapper {
+    margin: auto;
+}
+
+@keyframes wave {
+    0% {
+      box-shadow: 0 1vh 20vh #0c0;
+      top:-100vh;
+    }
+    48%, 52% {
+      box-shadow: 0 1vh 20vh #090;
+    }
+    50% {
+      box-shadow: 0 1vh 20vh #060;
+    }
+    100% {
+      box-shadow: 0 1vh 20vh #0c0;
+      top:200vh;
+    }
+}
+
+@keyframes colorPulse {
+    0%, 100% {
+      color:#0c0;
+    }
+    48%, 52% {
+      color:#090;
+    }
+    50% {
+      color:#060;
+    }
+}
+
+@keyframes spin { 
+    100% { 
+        transform:rotate(360deg); 
+    } 
+}
+
+.screen {
+    display: flex;
+    animation: colorPulse 0.1s infinite ease-in-out;
+    background-image: linear-gradient(#444, #111);
+    box-shadow: 0 0 5vmin 1vmin #000 inset;
+    box-sizing: border-box;
+    font-family:'Fira Mono', monospace;
+    font-size:20px;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.8;
+}
+
+.screen:before {
+    animation: wave 10s infinite ease-in-out;
+    content:"";
+    height: 5vh;
+    left: 0;
+    opacity:.8;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.screen:after {
+    background-image: linear-gradient(transparent, transparent 3px, #222);
+    background-size: 4px 4px;
+    bottom: 0;
+    content:"";
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}  
+
+
+.img-container {
+    position: relative;
+    width: 50%;
+    border-radius: 15px;
+    background-position: right 45px bottom;
+}
+
+.img-container > img {
+    width: 90%;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0.9;
+}
+
+.navigation-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.music-info {
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tCover {
+    position: absolute;
+    opacity: 0.3;
+    z-index: -1;
+    top: -30px;
+    left: 120px;
+    width: 30%;
+    border-radius: 360px;
+}
+
+.spin {
+    animation:spin 8s linear infinite;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+}
